@@ -40,8 +40,12 @@ export function getEvents() {
 		)
 			.then((response) => response.json())
 			.then((res) => {
-                console.log(res);
-                dispatch(eventsSuccess(res));
+                const events = res.events.map((event, index) => {
+                    event.viewed = false;
+                    event.id = index;
+                    return event;
+                });
+                dispatch(eventsSuccess(events));
                 dispatch(getRandomEvents());
 			})
 			.catch((err) => dispatch(eventsError(err.toString())));
