@@ -10,6 +10,7 @@
   },
   "author": "AG",
   "license": "ISC",
+  "engines" : { "node" : ">=10.13" },
   "babel": {
     "presets": [
       "@babel/preset-env",
